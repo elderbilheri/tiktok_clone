@@ -1,0 +1,56 @@
+.videoFooter {
+  position: relative;
+  bottom: 100px;
+  font-size: 0.95rem;
+  color: white;
+  margin-left: 20px;
+}
+
+.videoFooter h3 {
+  padding-bottom: 5px;
+}
+
+.videoFooter_music {
+  display: flex;
+  gap: 5px;
+  padding-top: 5px;
+  align-items: center;
+}
+
+.videoFooterMusic_text {
+  width: 70%;
+  overflow-x: hidden;
+}
+
+.videoFooterMusic_text p {
+  animation: movetheText 4s infinite linear;
+}
+
+.videoFooter_img {
+  position: absolute;
+  bottom: 0px;
+  right: 20px;
+  width: 40px;
+  filter: invert(1);
+  animation: spinVinil 1.8s infinite linear;
+  border-radius: 50%;
+  box-shadow: 0px 0px 3px #fff;
+}
+
+@keyframes spinVinil {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes movetheText {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
