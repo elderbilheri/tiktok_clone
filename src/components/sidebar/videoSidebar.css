@@ -13,3 +13,10 @@
   margin-bottom: 20px;
   cursor: pointer;
 }
+
+/* Responsivo */
+@media only screen and (max-width: 440px) {
+  .videoSidebar {
+    top: 55%;
+  }
+}
