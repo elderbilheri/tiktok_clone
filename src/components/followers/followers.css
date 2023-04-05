@@ -1,0 +1,39 @@
+.followers {
+  display: flex;
+  gap: 15px;
+  color: #ffffff;
+  align-items: center;
+  padding: 8px 5px;
+  cursor: pointer;
+}
+
+.followers:hover {
+  background-color: #444;
+}
+
+.followers_img {
+  width: 40px;
+  display: block;
+  border-radius: 50%;
+}
+
+.followers_names {
+  display: flex;
+  flex-direction: column;
+}
+
+.followers_names h4 {
+  font-size: 1.1rem;
+}
+
+.followers_names span {
+  font-size: 0.75rem;
+}
+
+.followers_names img {
+  margin-left: 5px;
+}
+
+.icon {
+  color: #87cefa;
+}
