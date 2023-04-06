@@ -1,0 +1,17 @@
+.music {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  color: #ffffffc9;
+  background-color: #111;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.music:hover {
+  background-color: #fe2c55;
+  color: #fff;
+}

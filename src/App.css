@@ -15,7 +15,6 @@ html {
   max-height: 780px;
   width: 80%;
   max-width: 500px;
-  margin: 0 auto;
   align-self: center;
   border-radius: 10px;
   overflow: scroll;
@@ -69,8 +68,119 @@ html {
 
 .menuLeft_sugestions h3 {
   margin-bottom: 5px;
-  color: #ddd;
   font-size: 0.8rem;
+  color: #ddd;
+}
+
+.menuRight {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-right: 20px;
+  justify-content: center;
+  height: 100vh;
+  max-height: 780px;
+}
+
+.menuRight_navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+
+.menuRight_navbar {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.menuRight_navbar button {
+  padding: 5px 20px;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: #fe2c55;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.menuRight_navbar img {
+  display: block;
+  width: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.iconSend {
+  transform: rotate(-30deg);
+}
+
+.menuRight_navbar button:hover {
+  background-color: #fe6986;
+}
+
+.iconNotification:hover,
+.iconSend:hover {
+  color: #fe6986;
+  cursor: pointer;
+}
+
+.menuRight_input {
+  align-self: center;
+  outline: none;
+  width: 95%;
+  height: 30px;
+  padding: 5px 15px;
+  font-size: 1rem;
+  color: #dfdfdfd2;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background-color: #97979744;
+  box-shadow: 0px 0px 10px rgba(12, 12, 12, 0.233);
+}
+
+.menuRight_input::placeholder {
+  color: #acacaccb;
+}
+
+.menuRight_input:hover {
+  border-color: #fe6986;
+}
+
+.menuRight_input:focus {
+  border-color: #fe2c55;
+}
+
+.menuRight_titles {
+  text-align: end;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.menuRight_download {
+  display: flex;
+  gap: 10px;
+  color: #fff;
+  align-self: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 5px 10px;
+  border: 1px solid transparent;
+}
+
+.menuRight_download:hover {
+  background-color: #444;
+  border-radius: 10px;
+  border-color: #fe6986;
+}
+
+.iconDown {
+  color: #fe2c55;
 }
 
 /* Responsivo */

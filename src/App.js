@@ -2,11 +2,16 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import Video from "./pages/Video";
 import Followers from "./components/followers/Followers";
+import Tags from "./components/tags/Tags";
+import Musics from "./components/musics/Musics";
 import db from "./config/firebase";
 import { collection, getDocs } from "firebase/firestore/lite";
 import HomeIcon from "@mui/icons-material/Home";
 import PeopleIcon from "@mui/icons-material/People";
 import LiveTvIcon from "@mui/icons-material/LiveTv";
+import SendIcon from "@mui/icons-material/Send";
+import MoveToInboxIcon from "@mui/icons-material/MoveToInbox";
+import DownloadForOfflineIcon from "@mui/icons-material/DownloadForOffline";
 
 function App() {
   let maxHeight;
@@ -17,6 +22,10 @@ function App() {
   const [video, setVideos] = useState([]);
 
   const [user, setUsers] = useState([]);
+
+  const [tag, setTags] = useState([]);
+
+  const [music, setMusics] = useState([]);
 
   async function getVideos() {
     const videosCollection = collection(db, "videos");
@@ -32,9 +41,25 @@ function App() {
     setUsers(usersList);
   }
 
+  async function getTags() {
+    const tagsCollection = collection(db, "tags");
+    const tagsSnapshot = await getDocs(tagsCollection);
+    const tagsList = tagsSnapshot.docs.map((doc) => doc.data());
+    setTags(tagsList);
+  }
+
+  async function getMusics() {
+    const musicsCollection = collection(db, "musics");
+    const musicsSnapshot = await getDocs(musicsCollection);
+    const musicsList = musicsSnapshot.docs.map((doc) => doc.data());
+    setMusics(musicsList);
+  }
+
   useEffect(() => {
     getVideos();
     getUsers();
+    getTags();
+    getMusics();
   }, []);
 
   return (
@@ -94,6 +119,44 @@ function App() {
             />
           );
         })}
+      </div>
+
+      {/* Menu Direito */}
+      <div className="menuRight">
+        <div className="menuRight_navbar">
+          <button>+ Carregar</button>
+          <SendIcon className="iconSend" fontSize="large" />
+          <MoveToInboxIcon className="iconNotification" fontSize="large" />
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/tiktokclone-714b1.appspot.com/o/user.jpg?alt=media&token=40e8e2b9-6222-4e40-961d-f8cf1b0ba054"
+            alt="foto usuário"
+          />
+        </div>
+        <input
+          className="menuRight_input"
+          type="text"
+          placeholder="Pesquisar contas e vídeos"
+        />
+        <div>
+          <h4 className="menuRight_titles">Descobrir</h4>
+          <div className="menuRight_component">
+            {tag.map((item) => {
+              return <Tags name={item.name} />;
+            })}
+          </div>
+        </div>
+        <div>
+          <h4 className="menuRight_titles">Principais Músicas</h4>
+          <div className="menuRight_component">
+            {music.map((item) => {
+              return <Musics name={item.name} />;
+            })}
+          </div>
+        </div>
+        <div className="menuRight_download">
+          <span>Obter aplicativo</span>
+          <DownloadForOfflineIcon className="iconDown" />
+        </div>
       </div>
     </div>
   );
